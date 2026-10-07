@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Stackly Logistics</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <!-- LOGIN CSS -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <p>Loading Stackly Logistics...</p>
+    </div>
+
+
+    <!-- ANIMATED BACKGROUND -->
+    <div class="animated-background" aria-hidden="true">
+
+        <span class="floating-icon icon-one">
+            <i class="fa-solid fa-box"></i>
+        </span>
+
+        <span class="floating-icon icon-two">
+            <i class="fa-solid fa-truck-fast"></i>
+        </span>
+
+        <span class="floating-icon icon-three">
+            <i class="fa-solid fa-plane"></i>
+        </span>
+
+        <span class="floating-icon icon-four">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+
+        <span class="orbit orbit-one"></span>
+        <span class="orbit orbit-two"></span>
+
+    </div>
+
+
+    <!-- LOGIN PAGE -->
+    <main class="login-page">
+
+        <!-- LEFT VISUAL -->
+        <section class="login-visual">
+
+            <div class="visual-overlay"></div>
+
+            <div class="visual-content">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                    aria-label="Stackly Logistics Home"
+                    data-aos="fade-down">
+
+                    <img
+                        src="assets/image.webp"
+                        alt="Stackly Logistics Logo">
+
+                </a>
+
+
+                <div
+                    class="visual-main"
+                    data-aos="fade-right"
+                    data-aos-delay="150">
+
+                    <span class="visual-tag">
+                        <i class="fa-solid fa-globe"></i>
+                        SMART LOGISTICS PLATFORM
+                    </span>
+
+                    <h1>
+                        Everything you need
+                        <strong>to move forward.</strong>
+                    </h1>
+
+                    <p>
+                        Manage shipments, monitor deliveries,
+                        track logistics operations and access
+                        your dashboard from one secure platform.
+                    </p>
+
+
+                    <div class="visual-stats">
+
+                        <div
+                            class="visual-stat"
+                            data-aos="fade-up"
+                            data-aos-delay="250">
+
+                            <strong>1M+</strong>
+                            <span>Shipments</span>
+
+                        </div>
+
+                        <div
+                            class="visual-stat"
+                            data-aos="fade-up"
+                            data-aos-delay="350">
+
+                            <strong>50+</strong>
+                            <span>Cities</span>
+
+                        </div>
+
+                        <div
+                            class="visual-stat"
+                            data-aos="fade-up"
+                            data-aos-delay="450">
+
+                            <strong>99%</strong>
+                            <span>Success</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="visual-footer"
+                    data-aos="fade-up"
+                    data-aos-delay="550">
+
+                    <span>
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Secure Access
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-clock"></i>
+                        24/7 Support
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT LOGIN PANEL -->
+        <section class="login-panel">
+
+            <div
+                class="login-card"
+                data-aos="fade-left"
+                data-aos-duration="900">
+
+
+                <!-- MOBILE LOGO -->
+                <div class="mobile-logo">
+
+                    <a
+                        href="index.html"
+                        aria-label="Stackly Logistics Home">
+
+                        <img
+                            src="assets/image.webp"
+                            alt="Stackly Logistics Logo">
+
+                    </a>
+
+                </div>
+
+
+                <!-- HEADING -->
+                <div class="login-heading">
+
+                    <span class="eyebrow">
+                        ACCOUNT LOGIN
+                    </span>
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Sign in to access your Stackly Logistics
+                        dashboard.
+                    </p>
+
+                </div>
+
+
+                <!-- ROLE SELECTION -->
+                <div
+                    class="role-section"
+                    data-aos="fade-up"
+                    data-aos-delay="100">
+
+                    <div class="section-label">
+                        Login As
+                    </div>
+
+                    <div class="role-buttons">
+
+                        <!-- CUSTOMER -->
+                        <label class="role-button active">
+
+                            <input
+                                type="radio"
+                                name="loginRole"
+                                value="customer"
+                                checked>
+
+                            <span class="role-inner">
+
+                                <i class="fa-solid fa-user"></i>
+
+                                <span>
+                                    <strong>Customer</strong>
+                                    <small>Customer Dashboard</small>
+                                </span>
+
+                            </span>
+
+                            <span class="role-check">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+
+                        </label>
+
+
+                        <!-- ADMIN -->
+                        <label class="role-button">
+
+                            <input
+                                type="radio"
+                                name="loginRole"
+                                value="admin">
+
+                            <span class="role-inner">
+
+                                <i class="fa-solid fa-user-shield"></i>
+
+                                <span>
+                                    <strong>Admin</strong>
+                                    <small>Admin Dashboard</small>
+                                </span>
+
+                            </span>
+
+                            <span class="role-check">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+                <form
+                    id="loginForm"
+                    class="login-form"
+                    novalidate>
+
+
+                    <!-- EMAIL -->
+                    <div
+                        class="form-group"
+                        data-aos="fade-up"
+                        data-aos-delay="150">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                        <small
+                            class="error-message"
+                            id="emailError">
+                        </small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div
+                        class="form-group"
+                        data-aos="fade-up"
+                        data-aos-delay="200">
+
+                        <div class="label-row">
+
+                            <label for="loginPassword">
+                                Password
+                            </label>
+
+                            <a
+                                href="404.html"
+                                id="forgotPassword">
+
+                                Forgot Password?
+
+                            </a>
+
+                        </div>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required>
+
+                            <button
+                                type="button"
+                                id="passwordToggle"
+                                class="password-toggle"
+                                aria-label="Show password"
+                                title="Show password">
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                        <small
+                            class="error-message"
+                            id="passwordError">
+                        </small>
+
+                    </div>
+
+
+                    <!-- REMEMBER ME -->
+                    <div
+                        class="remember-row"
+                        data-aos="fade-up"
+                        data-aos-delay="250">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe">
+
+                            <span class="custom-checkbox">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+
+                            Remember me
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+                    <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton"
+                        data-aos="fade-up"
+                        data-aos-delay="300">
+
+                        <span>Login</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <!-- LOGIN MESSAGE -->
+                    <div
+                        class="login-message"
+                        id="loginMessage"
+                        aria-live="polite">
+                    </div>
+
+                </form>
+
+
+                <!-- DEMO CREDENTIALS -->
+                <div
+                    class="demo-box"
+                    data-aos="fade-up"
+                    data-aos-delay="350">
+
+                    <div class="demo-title">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        Demo Login
+
+                    </div>
+
+
+                    <div class="demo-row">
+
+                        <span>Customer</span>
+
+                        <code>customer@stackly.com</code>
+
+                        <code>123456</code>
+
+                    </div>
+
+
+                    <div class="demo-row">
+
+                        <span>Admin</span>
+
+                        <code>admin@stackly.com</code>
+
+                        <code>admin123</code>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SIGN UP -->
+                <div
+                    class="signup-link"
+                    data-aos="fade-up"
+                    data-aos-delay="400">
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+                        Create Account
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- SECURITY -->
+                <div class="security-note">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Secure Stackly Logistics Account
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- LOGIN JS -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
+
