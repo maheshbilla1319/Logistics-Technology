@@ -1,0 +1,1110 @@
+
+/* =========================================================
+   STACKLY LOGISTICS LOGIN
+========================================================= */
+
+:root {
+    --dark: #062B35;
+    --lime: #B8FF24;
+    --white: #FFFFFF;
+
+    --dark-soft: rgba(6, 43, 53, 0.9);
+    --white-soft: rgba(255, 255, 255, 0.72);
+    --border: rgba(6, 43, 53, 0.14);
+    --lime-soft: rgba(184, 255, 36, 0.15);
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+
+    --transition: 0.35s ease;
+}
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "DM Sans", sans-serif;
+
+    background: var(--dark);
+    color: var(--dark);
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--dark);
+    color: var(--white);
+
+    transition: 0.5s ease;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    display: flex;
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+.loader span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: var(--lime);
+
+    animation: loading 1s infinite ease-in-out;
+}
+
+.loader span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.loader span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.preloader p {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white-soft);
+}
+
+@keyframes loading {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.6);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   BACKGROUND ANIMATION
+========================================================= */
+
+.animated-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-icon {
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(184, 255, 36, 0.16);
+    border-radius: 18px;
+
+    color: var(--lime);
+
+    background: rgba(6, 43, 53, 0.3);
+
+    font-size: 22px;
+
+    animation: floating 8s infinite ease-in-out;
+}
+
+.icon-one {
+    top: 12%;
+    left: 4%;
+}
+
+.icon-two {
+    left: 12%;
+    bottom: 12%;
+    animation-delay: 1.5s;
+}
+
+.icon-three {
+    top: 18%;
+    right: 7%;
+    animation-delay: 2s;
+}
+
+.icon-four {
+    right: 14%;
+    bottom: 14%;
+    animation-delay: 3s;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(18px, -25px) rotate(8deg);
+    }
+
+}
+
+
+/* ORBITS */
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(184, 255, 36, 0.1);
+
+    border-radius: 50%;
+
+    animation: orbitRotate 20s linear infinite;
+}
+
+.orbit-one {
+    width: 380px;
+    height: 380px;
+
+    left: -160px;
+    bottom: -160px;
+}
+
+.orbit-two {
+    width: 550px;
+    height: 550px;
+
+    right: -250px;
+    top: -250px;
+
+    animation-direction: reverse;
+}
+
+@keyframes orbitRotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.login-page {
+    position: relative;
+    z-index: 1;
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 0.95fr 1.05fr;
+}
+
+
+/* =========================================================
+   LEFT VISUAL
+========================================================= */
+
+.login-visual {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 55px;
+
+    display: flex;
+
+    background-image: url("../assets/banner2.webp");
+    background-size: cover;
+    background-position: center;
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+.visual-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: var(--dark);
+    opacity: 0.88;
+}
+
+.visual-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo img {
+    width: 155px;
+}
+
+
+/* =========================================================
+   VISUAL MAIN
+========================================================= */
+
+.visual-main {
+    max-width: 570px;
+
+    margin: auto 0;
+}
+
+.visual-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 22px;
+
+    padding: 9px 15px;
+
+    border: 1px solid rgba(184, 255, 36, 0.3);
+    border-radius: 50px;
+
+    background: var(--lime-soft);
+
+    color: var(--lime);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.visual-main h1 {
+    margin-bottom: 24px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+}
+
+.visual-main h1 strong {
+    display: block;
+
+    color: var(--lime);
+}
+
+.visual-main p {
+    max-width: 510px;
+
+    color: var(--white-soft);
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   VISUAL STATS
+========================================================= */
+
+.visual-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 42px;
+}
+
+.visual-stat {
+    padding: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+
+    background: rgba(255, 255, 255, 0.05);
+
+    transition: var(--transition);
+}
+
+.visual-stat:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--lime);
+}
+
+.visual-stat strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--lime);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 23px;
+}
+
+.visual-stat span {
+    color: var(--white-soft);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   VISUAL FOOTER
+========================================================= */
+
+.visual-footer {
+    display: flex;
+    gap: 25px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: var(--white-soft);
+
+    font-size: 11px;
+}
+
+.visual-footer span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.visual-footer i {
+    color: var(--lime);
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.login-panel {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+
+    background: var(--white);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 560px;
+}
+
+
+/* MOBILE LOGO */
+
+.mobile-logo {
+    display: none;
+
+    margin-bottom: 30px;
+}
+
+.mobile-logo img {
+    width: 145px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.login-heading {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.login-heading h2 {
+    margin-bottom: 10px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+}
+
+.login-heading p {
+    color: rgba(6, 43, 53, 0.6);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.role-section {
+    margin-bottom: 23px;
+}
+
+.section-label {
+    margin-bottom: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.role-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.role-button {
+    position: relative;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+.role-button input {
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.role-inner {
+    min-height: 68px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--white);
+
+    transition: var(--transition);
+}
+
+.role-inner > i {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--lime);
+    color: var(--dark);
+}
+
+.role-inner strong {
+    display: block;
+
+    font-size: 12px;
+
+    margin-bottom: 3px;
+}
+
+.role-inner small {
+    display: block;
+
+    color: rgba(6, 43, 53, 0.5);
+
+    font-size: 9px;
+}
+
+.role-button.active .role-inner {
+    border-color: var(--dark);
+
+    background: var(--dark);
+    color: var(--white);
+}
+
+.role-button.active .role-inner small {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.role-check {
+    position: absolute;
+
+    top: 9px;
+    right: 9px;
+
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--lime);
+    color: var(--dark);
+
+    font-size: 8px;
+
+    opacity: 0;
+}
+
+.role-button.active .role-check {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label-row a {
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: underline;
+}
+
+.input-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.input-box > i {
+    position: absolute;
+    left: 15px;
+
+    color: rgba(6, 43, 53, 0.45);
+
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+.input-box input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 45px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    background: var(--white);
+    color: var(--dark);
+
+    font-size: 13px;
+
+    transition: var(--transition);
+}
+
+.input-box input::placeholder {
+    color: rgba(6, 43, 53, 0.35);
+}
+
+.input-box input:focus {
+    border-color: var(--dark);
+
+    box-shadow:
+        0 0 0 4px var(--lime-soft);
+}
+
+.input-box.error input {
+    border-color: var(--dark);
+}
+
+.input-box.success input {
+    border-color: var(--lime);
+}
+
+
+/* PASSWORD */
+
+.password-toggle {
+    position: absolute;
+    right: 9px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+    color: rgba(6, 43, 53, 0.45);
+
+    transition: var(--transition);
+}
+
+.password-toggle:hover {
+    background: var(--lime-soft);
+    color: var(--dark);
+}
+
+
+/* ERRORS */
+
+.error-message {
+    min-height: 0;
+
+    margin-top: 5px;
+
+    color: var(--dark);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   REMEMBER
+========================================================= */
+
+.remember-row {
+    margin-top: -3px;
+}
+
+.remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+
+    color: rgba(6, 43, 53, 0.6);
+
+    font-size: 11px;
+}
+
+.remember input {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-checkbox {
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    font-size: 9px;
+
+    transition: var(--transition);
+}
+
+.remember input:checked + .custom-checkbox {
+    background: var(--dark);
+    border-color: var(--dark);
+
+    color: var(--lime);
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-button {
+    width: 100%;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border: 2px solid var(--dark);
+    border-radius: var(--radius-sm);
+
+    background: var(--dark);
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.login-button:hover {
+    background: var(--lime);
+    color: var(--dark);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(6, 43, 53, 0.15);
+}
+
+.login-button i {
+    transition: var(--transition);
+}
+
+.login-button:hover i {
+    transform: translateX(5px);
+}
+
+.login-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.login-message {
+    display: none;
+
+    padding: 12px 14px;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--lime-soft);
+
+    color: var(--dark);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.login-message.show {
+    display: block;
+}
+
+
+/* =========================================================
+   DEMO BOX
+========================================================= */
+
+.demo-box {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: 1px dashed rgba(6, 43, 53, 0.2);
+    border-radius: var(--radius-md);
+
+    background: rgba(6, 43, 53, 0.025);
+}
+
+.demo-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 10px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.demo-title i {
+    color: var(--dark);
+}
+
+.demo-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 80px;
+
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 0;
+
+    border-top: 1px solid rgba(6, 43, 53, 0.08);
+
+    font-size: 9px;
+}
+
+.demo-row span {
+    font-weight: 700;
+}
+
+.demo-row code {
+    overflow: hidden;
+
+    padding: 5px 7px;
+
+    border-radius: 5px;
+
+    background: var(--white);
+
+    font-family: monospace;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   SIGNUP
+========================================================= */
+
+.signup-link {
+    margin-top: 23px;
+
+    text-align: center;
+
+    color: rgba(6, 43, 53, 0.55);
+
+    font-size: 11px;
+}
+
+.signup-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-left: 4px;
+
+    color: var(--dark);
+
+    font-weight: 800;
+}
+
+.signup-link a i {
+    font-size: 9px;
+
+    transition: var(--transition);
+}
+
+.signup-link a:hover i {
+    transform: translateX(4px);
+}
+
+
+/* SECURITY */
+
+.security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    margin-top: 18px;
+
+    color: rgba(6, 43, 53, 0.4);
+
+    font-size: 9px;
+}
+
+.security-note i {
+    color: var(--dark);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .login-page {
+        grid-template-columns: 0.85fr 1.15fr;
+    }
+
+    .login-visual {
+        padding: 40px;
+    }
+
+    .login-panel {
+        padding: 35px;
+    }
+
+    .visual-main h1 {
+        font-size: 50px;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .login-page {
+        display: block;
+    }
+
+    .login-visual {
+        display: none;
+    }
+
+    .login-panel {
+        min-height: 100vh;
+
+        padding: 40px 25px;
+    }
+
+    .mobile-logo {
+        display: block;
+    }
+
+    .login-card {
+        max-width: 580px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .login-panel {
+        padding: 30px 16px;
+    }
+
+    .login-heading h2 {
+        font-size: 35px;
+    }
+
+    .role-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-row {
+        grid-template-columns: 60px 1fr;
+
+        gap: 6px;
+    }
+
+    .demo-row code:last-child {
+        grid-column: 2;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .login-panel {
+        padding: 25px 12px;
+    }
+
+    .login-heading h2 {
+        font-size: 31px;
+    }
+
+}
+
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--lime);
+    outline-offset: 3px;
+}
+
